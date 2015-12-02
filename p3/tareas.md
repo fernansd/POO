@@ -8,7 +8,7 @@ Por hacer en P3
 + Observador y modificador para *Crupier*
 + Observador *getJugadores* devuelve *jugadores_*
 
-- Método bool *addJugador* recibe Jugador como parámetro y lo añade al final de la lista, añade un fichero con nombre "<dni-jugador>.txt". Si el fichero existe lo deja así. Si existe el jugador devuelve *false*.
++ Método bool *addJugador* recibe Jugador como parámetro y lo añade al final de la lista, añade un fichero con nombre "<dni-jugador>.txt". Si el fichero existe lo deja así. Si existe el jugador devuelve *false*.
 
 - Método *deleteJugador* recibe *dni* y lo borra de la lista. Devuelve 1 si se ha borrado, -1 si la lista esta vacía y -2 si no se encuentra el jugador.No se borra el fichero del jugador.
 

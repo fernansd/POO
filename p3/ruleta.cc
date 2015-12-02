@@ -59,10 +59,13 @@ int Ruleta::deleteJugador(const string dni) {
 	for (list<Jugador>::iterator cont=jugadores_.begin(); cont!=jugadores_.end(); cont++) {
 		if(cont->getDNI() == dni) {
 			jugadores_.erase(cont);
-			return;
+			return 1;
 		}	
 	}
-	return;
+
+	if (jugadores_.empty()) return -1;
+
+	return -2;
 }
 
 int Ruleta::deleteJugador(const Jugador& jugador) {
