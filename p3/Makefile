@@ -14,7 +14,7 @@
 
 # Points to the root of Google Test, relative to where this file is.
 # Remember to tweak this if you move this file.
-GTEST_DIR = /home/i42sadef/gtest-1.7.0
+GTEST_DIR = ~/POO/p3/gtest-1.7.0
 
 # Where to find user code.
 # USER_DIR = ../samples
