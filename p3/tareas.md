@@ -10,9 +10,9 @@ Por hacer en P3
 
 + Método bool *addJugador* recibe Jugador como parámetro y lo añade al final de la lista, añade un fichero con nombre "<dni-jugador>.txt". Si el fichero existe lo deja así. Si existe el jugador devuelve *false*.
 
-- Método *deleteJugador* recibe *dni* y lo borra de la lista. Devuelve 1 si se ha borrado, -1 si la lista esta vacía y -2 si no se encuentra el jugador.No se borra el fichero del jugador.
++ Método *deleteJugador* recibe *dni* y lo borra de la lista. Devuelve 1 si se ha borrado, -1 si la lista esta vacía y -2 si no se encuentra el jugador.No se borra el fichero del jugador.
 
-- Método alterno *deleteJugador* recibe *Jugador* y borra de la lista el que coincida con el *dni*. Devuelve 1 si borra el jugador, -1 si la lista esta vacía y -2 si no se encuentra un jugador. No se borra su fichero.
++ Método alterno *deleteJugador* recibe *Jugador* y borra de la lista el que coincida con el *dni*. Devuelve 1 si borra el jugador, -1 si la lista esta vacía y -2 si no se encuentra un jugador. No se borra su fichero.
 
 - Método *void* *escribeJugadores* vuelca los datos de la lista de jugadores en un fichero texto "jugadores.txt". El formato es "DNI,código,nombre,apellidos, dirección, localidad, provincia,pais,dinero". Si un campo esta vacío no se que "DNI,nombre,,,localidad,etc..."
 
