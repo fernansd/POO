@@ -14,10 +14,10 @@
 
 # Points to the root of Google Test, relative to where this file is.
 # Remember to tweak this if you move this file.
-GTEST_DIR = ~/POO/gtest-1.7.0
+GTEST_DIR = ..
 
 # Where to find user code.
-# USER_DIR = ../samples
+USER_DIR = ../samples
 
 # Flags passed to the preprocessor.
 # Set Google Test's header directory as a system directory, such that
@@ -29,7 +29,7 @@ CXXFLAGS += -g -Wall -Wextra -pthread
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
-TESTS = persona_unittest jugador_unittest crupier_unittest ruleta_unittest
+TESTS = sample1_unittest
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -37,8 +37,7 @@ GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
                 $(GTEST_DIR)/include/gtest/internal/*.h
 
 # House-keeping build targets.
-# make comienza con el primer target, el "default goal"
-# que incluye $(TEST) y, por tanto, intentará constriur cada uno de esos ejecutables
+
 all : $(TESTS)
 
 clean :
@@ -72,31 +71,12 @@ gtest_main.a : gtest-all.o gtest_main.o
 # gtest_main.a, depending on whether it defines its own main()
 # function.
 
-persona.o : persona.h persona.cc
+sample1.o : $(USER_DIR)/sample1.cc $(USER_DIR)/sample1.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/sample1.cc
 
-crupier.o: crupier.h crupier.cc persona.h persona.cc
+sample1_unittest.o : $(USER_DIR)/sample1_unittest.cc \
+                     $(USER_DIR)/sample1.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/sample1_unittest.cc
 
-jugador.o: jugador.h jugador.cc persona.h persona.cc
-
-ruleta.o: ruleta.h ruleta.cc jugador.h jugador.cc persona.h persona.cc
-
-persona_unittest.o : persona_unittest.cc persona.h persona.cc
-
-crupier_unittest.o : crupier_unittest.cc crupier.h crupier.cc persona.h persona.cc
-
-jugador_unittest.o : jugador_unittest.cc jugador.h jugador.cc persona.h persona.cc
-
-ruleta_unittest.o : ruleta_unittest.cc jugador.h jugador.cc ruleta.h ruleta.cc
-
-persona_unittest : persona.o persona_unittest.o gtest_main.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
-	
-crupier_unittest : crupier.o persona.o crupier_unittest.o gtest_main.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
-
-jugador_unittest : jugador.o persona.o jugador_unittest.o gtest_main.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
-
-ruleta_unittest : ruleta.o persona.o jugador.o ruleta_unittest.o gtest_main.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
-
+sample1_unittest : sample1.o sample1_unittest.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
