@@ -1,4 +1,4 @@
 language: cpp
 compiler: gcc
-script: cd p3 && make && ./persona_unittest
+script: cd p3 && make
 
