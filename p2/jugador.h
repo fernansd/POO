@@ -21,9 +21,12 @@ class Jugador : public Persona {
 
 
 	public:
-		Jugador(const string &DNI, const string &codigo, string nombre="", string apellidos="", string direccion="", string localidad="", string provincia="", string pais="") : Persona(DNI,nombre, apellidos, direccion, localidad, provincia, pais) {
-			dinero_ = 1000;	
-			codigo_ = codigo;
+		Jugador(const string &DNI, const string &codigo, string nombre="",
+			string apellidos="", string direccion="", string localidad="",
+			string provincia="", string pais="") : Persona(DNI,nombre, apellidos,
+			direccion, localidad, provincia, pais) {
+				dinero_ = 1000;
+				codigo_ = codigo;
 		}
 		string getCodigo() { return codigo_; }
 		void setCodigo(string codigo) { codigo_ = codigo; }
